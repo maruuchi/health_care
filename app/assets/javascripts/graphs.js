@@ -99,13 +99,18 @@ document.addEventListener('turbolinks:load', () => {
         let weights = records.map((record) => record.weight)
 
         let weightData = {
+          type: 'line',
           labels: dates,
           datasets: [{
             label: '体重(kg)',
             data: weights,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
+            // 面の表示
+            fill: false,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1.5,
+            pointBackgroundColor: "#fff",
+            pointRadius: 3,
             spanGaps: true
           }]
         }
