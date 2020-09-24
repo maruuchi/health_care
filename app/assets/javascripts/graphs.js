@@ -10,8 +10,8 @@ document.addEventListener('turbolinks:load', () => {
     const maxDate = (date1, date2) => (date1 > date2) ? date1 : date2
 
     // データの初日・最終日
-    const START_DATE = convertDate(gon.weight_records[0].date)
-    const END_DATE = convertDate(gon.weight_records[gon.weight_records.length - 1].date)
+    const START_DATE = convertDate(gon.graph_records[0].date)
+    const END_DATE = convertDate(gon.graph_records[gon.graph_records.length - 1].date)
       
     // カレンダーの日本語化
     flatpickr.localize(flatpickr.l10ns.ja)
@@ -53,7 +53,7 @@ document.addEventListener('turbolinks:load', () => {
       const editCalendar = document.getElementById('edit-calendar')
       const editWeight = document.getElementById('edit-weight')
       const inputWeight = () => {
-        let record = gon.weight_records.find((record) => record.date === editCalendar.value)
+        let record = gon.graph_records.find((record) => record.date === editCalendar.value)
         editWeight.value = record.weight
       }
       
@@ -83,7 +83,7 @@ document.addEventListener('turbolinks:load', () => {
       // 期間を指定してグラフを描く
       const drawGraph = (from, to) => {
         
-        let records = gon.weight_records.filter((record) => {
+        let records = gon.graph_records.filter((record) => {
           let date = convertDate(record.date)
           return from <= date && date <= to
         })

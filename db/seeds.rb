@@ -1,7 +1,6 @@
 EMAIL = 'test@example.com'
 PASSWORD = 'password'
 
-
 # データの入力範囲
 START_DATE = Date.today - 11.months
 END_DATE = Date.today + 1.months
@@ -15,9 +14,12 @@ MIN_WEIGHT = 600
 MAX_WEIGHT = 620
 DIV_CONSTANT = 10
 
+MIN_STEP = 10000
+MAX_STEP = 12000
+
 # テストユーザーが存在しないときだけ作成し，変数名を user とする（後に使用）
 user = User.find_or_create_by!(email: EMAIL) do |user|
-  user.password = PASSWORD
+  user.password = SecureRandom.urlsafe_base64
   puts 'ユーザーの初期データインポートに成功しました。'
 end
 
@@ -30,8 +32,9 @@ graphs = []
   graphs << {
     user_id: user.id,
     date: date,
-    # to_f を入れておかないと整数になるので注意！
-    weight: rand(MIN_WEIGHT..MAX_WEIGHT).to_f / DIV_CONSTANT
+    # to_f 整数から少数に変更できる
+    weight: rand(MIN_WEIGHT..MAX_WEIGHT).to_f / DIV_CONSTANT,
+    step: rand(MIN_STEP..MAX_STEP).to_f / DIV_CONSTANT
   }
 end
 Graph.create!(graphs)
