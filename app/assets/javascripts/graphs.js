@@ -147,19 +147,13 @@ document.addEventListener('turbolinks:load', () => {
           scales: {
             yAxes: [{
                 id: 'y-axis-weight',
-                position: 'left',
-                ticks: {
-                  beginAtZero: true
-                },
+                position: 'left',               
               },
               {
                 id: 'y-axis-step',
                 position: 'right',
                 gridLines: {
                   display: false,
-                },
-                ticks: {
-                  beginAtZero: true
                 },
               }
             ]
