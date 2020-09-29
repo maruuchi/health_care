@@ -34,7 +34,7 @@ class GraphsController < ApplicationController
   private
 
   def graph_params
-    params.require(:graph).permit(:date, :weight)
+    params.require(:graph).permit(:date, :weight, :step)
   end
 
 end

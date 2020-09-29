@@ -52,9 +52,12 @@ document.addEventListener('turbolinks:load', () => {
       // 編集モーダルで日付を選択したときに，記録された体重を表示する関数
       const editCalendar = document.getElementById('edit-calendar')
       const editWeight = document.getElementById('edit-weight')
+      const editStep = document.getElementById('edit-step')
+
       const inputWeight = () => {
         let record = gon.graph_records.find((record) => record.date === editCalendar.value)
         editWeight.value = record.weight
+        editStep.value = record.step
       }
       
       // 記録編集用のカレンダー
@@ -98,10 +101,8 @@ document.addEventListener('turbolinks:load', () => {
         // 体重のみのデータを作成
         let weights = records.map((record) => record.weight)
 
-        let weightData = {
-          type: 'line',
-          labels: dates,
-          datasets: [{
+        let weightDatasets = {  
+            type: 'line',                                
             label: '体重(kg)',
             data: weights,
             // 面の表示
@@ -111,8 +112,27 @@ document.addEventListener('turbolinks:load', () => {
             borderWidth: 1.5,
             pointBackgroundColor: "#fff",
             pointRadius: 3,
-            spanGaps: true
-          }]
+            spanGaps: true,
+            yAxisID: 'y-axis-weight'  
+                
+        }
+
+        let steps = records.map((record) => record.step)
+
+        let stepDatasets = {
+              type: 'bar',                      
+              label: '歩数(歩)',
+              data: steps,
+              backgroundColor: 'rgba(54, 162, 235, 0.2)',
+              borderColor: 'rgba(54, 162, 235, 1)',
+              borderWidth: 1,
+              spanGaps: true,
+              yAxisID: 'y-axis-step'
+        }
+
+        let graphData = {
+          labels: dates,
+          datasets: [weightDatasets, stepDatasets]
         }
 
         let weightOption = {
@@ -121,24 +141,41 @@ document.addEventListener('turbolinks:load', () => {
               // ホバー（スマホならタップ）時のラベル表示を変更
               title: function (tooltipItems) {
                 return tooltipItems[0].xLabel.replace(/^(\d+).(\d+)$/, ' $1 月 $2 日')
-              },
-              label: function (tooltipItem) {
-                return '体重: ' + tooltipItem.yLabel + 'kg'
-              }
+              },              
             }
+          },
+          scales: {
+            yAxes: [{
+                id: 'y-axis-weight',
+                position: 'left',
+                ticks: {
+                  beginAtZero: true
+                },
+              },
+              {
+                id: 'y-axis-step',
+                position: 'right',
+                gridLines: {
+                  display: false,
+                },
+                ticks: {
+                  beginAtZero: true
+                },
+              }
+            ]
           }
         }
 
         if (!chartWeight) {
           // グラフが存在しないときは，作成する
           chartWeight = new Chart(chartWeightContext, {
-            type: 'line',
-            data: weightData,
+            type: 'bar',
+            data: graphData,
             options: weightOption
           })
         } else {
           // グラフが存在するときは，更新する
-          chartWeight.data = weightData
+          chartWeight.data = graphData
           chartWeight.options = weightOption
           chartWeight.update()
         }
