@@ -1,24 +1,21 @@
-# README
+# health_care
+<p>体重と歩数を記録しグラフで表示してくれるアプリケーションです。</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h1>アプリ概要</h1>
+<p>体重と歩数をグラフで視覚化することで健康意識がより高まります</p>
 
-Things you may want to cover:
+<h1>使用言語</h1>
+<p>HTML</p>
+<p>SCSS</p>
+<p>JavaScript</p>
+<p></p>
+<p>Ruby 2.2.6</p>
 
-* Ruby version
 
-* System dependencies
+<h1>フレームワーク</h1>
+<p>Ruby on Rails 5.2.4</p>
 
-* Configuration
+<h1>使い方</h1>
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
