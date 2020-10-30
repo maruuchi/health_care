@@ -1,0 +1,15 @@
+current directory: /Users/maruuchisoma/weight_management_app2/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+/Users/maruuchisoma/.rbenv/versions/2.6.6/bin/ruby -I /Users/maruuchisoma/.rbenv/versions/2.6.6/lib/ruby/2.6.0 -r ./siteconf20201030-40652-1io1277.rb extconf.rb
+creating Makefile
+
+current directory: /Users/maruuchisoma/weight_management_app2/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/maruuchisoma/weight_management_app2/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/maruuchisoma/weight_management_app2/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20201030-40652-19mas17/bootsnap
