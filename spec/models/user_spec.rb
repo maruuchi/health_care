@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
 
   describe '文字数の検証' do
     
+   
+
     it 'メールアドレスが255文字以内の場合、有効であること' do
       @user.email = 'a' * 243 + '@example.com'
       expect(@user).to be_valid
