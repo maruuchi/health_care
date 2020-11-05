@@ -38,6 +38,12 @@ header.sticky-top .navbar {
   padding: 5px 50px 5px 10px;
 }
 
+header.sticky-top .navbar-toggler {
+    border-color: rgba(0,0,0,0);
+}
+
+/* =========フッダー開始========== */
+
 footer{
   margin-top: 40px;
   background-color: #343A40;
