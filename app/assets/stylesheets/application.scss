@@ -28,8 +28,14 @@ button.close {
   outline : none;
 }
 
-header.sticky-top .navber {
-  padding: 5px 5px 5px 10px;
+/* =========ヘッダー開始========== */
+
+header.sticky-top nav.navbar{
+  padding-left: 50px;
+}
+
+header.sticky-top .navbar {
+  padding: 5px 50px 5px 10px;
 }
 
 footer{
