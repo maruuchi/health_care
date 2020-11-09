@@ -35,6 +35,8 @@ gem 'flatpickr'
 # Gon（コントローラから Javascript に変数を渡せるようにする）
 gem 'gon'
 
+gem 'bcrypt', '3.1.13'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
