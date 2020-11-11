@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
     
-    it "ユーザー名が256文字以上の場合は登録できない" do
+    it 'メールアドレスが256文字以上の場合、無効であること' do
       user = User.new(email: "a" * 256, password: "password")
       expect(user).not_to be_valid 
     end
@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
     end
     
     
-    it "パスワードが7文字以下の場合は登録できない" do
+    it 'パスワードが7文字以下の場合、無効であること' do
       user = User.new(email: "email", password: "a" * 7 )
       expect(user.invalid?).to be true
     end
