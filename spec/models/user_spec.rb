@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
     end
     
     it 'メールアドレスが256文字以上の場合、無効であること' do
-      user = User.new(email: "a" * 256, password: "password")
+      user = User.new(email: "a" * 244 + '@example.com', password: "password")
       expect(user).not_to be_valid 
     end
     
