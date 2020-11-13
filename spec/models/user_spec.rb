@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
   describe '文字数の検証' do
 
     it 'メールアドレスが255文字以内の場合、有効であること' do
-      user = User.new(email: "a" * 255, password: "password")
+      user = User.new(email: "a" * 243 + '@example.com', password: "password")
       expect(user).to be_valid
     end
     
