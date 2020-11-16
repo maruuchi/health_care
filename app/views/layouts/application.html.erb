@@ -13,18 +13,19 @@
   </head>
 
   <body>
-    
-    <%= render 'shared/header' %>
-    <!-- ログイン関連ページ以外にフラッシュ表示部分を追加 -->
-    <% if controller_name == 'graphs' %>
-      <%= render 'shared/flash_messages' %>
-    <% end %>
-    <div class="graph-container">
-      <%= yield %>
-    </div>
+    <div class="wrapper">
+      <%= render 'shared/header' %>
+      <!-- ログイン関連ページ以外にフラッシュ表示部分を追加 -->
+      <% if controller_name == 'graphs' %>
+        <%= render 'shared/flash_messages' %>
+      <% end %>
+      <div class="graph-container">
+        <%= yield %>
+      </div>
 
-    <footer>
-    <p>© 2020 丸内綜馬, All Rights Reserved.</p>
-  </footer>
+      <footer>
+        <p>© 2020 丸内綜馬, All Rights Reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>
