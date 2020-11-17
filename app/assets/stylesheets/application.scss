@@ -41,15 +41,15 @@ html,body {
 
 /* =========ヘッダー開始========== */
 
-.wrapper header.sticky-top nav.navbar{
+header.sticky-top nav.navbar{
   padding-left: 50px;
 }
 
-.wrapper header.sticky-top .navbar {
+header.sticky-top .navbar {
   padding: 5px 50px 5px 10px;
 }
 
-.wrapper header.sticky-top .navbar-toggler {
+header.sticky-top .navbar-toggler {
     border-color: rgba(0,0,0,0);
 }
 
